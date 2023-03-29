@@ -1,0 +1,39 @@
+.form-calendar,
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--primary-light),
+    var(--primary-dark)
+  );
+}
+
+.form-header {
+  color: var(--primary-dark);
+}
+.btn-primary {
+  border: 1px solid var(--primary-dark);
+}
+
+.custom-calendar {
+  background-color: white;
+  min-width: 100%;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-calendar .rmdp-calendar .rmdp-week {
+  width: 30vw;
+  height: 8vh;
+}
+
+.form-calendar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.calendar-wrapper {
+  width: 80%;
+}
