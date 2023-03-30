@@ -15,7 +15,7 @@ function App() {
         </section>
       </main>
       <footer>
-        <p>Copyright &copy; WhenWhere</p>
+        <p>Copyright &copy; WhenWhere 2023</p>
       </footer>
     </div>
   );
