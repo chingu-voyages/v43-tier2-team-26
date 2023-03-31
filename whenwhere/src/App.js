@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import { CreateEventPage } from "./pages/CreateEventPage/CreateEventPage";
+import { CreateEvent } from "./pages/CreateEvent/CreateEvent";
 
 function App() {
   return (
     <div>
-      <CreateEventPage />
+      <CreateEvent />
     </div>
   );
 }
