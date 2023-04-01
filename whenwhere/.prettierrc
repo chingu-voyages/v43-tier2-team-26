@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+{}
+=======
 {
   "printWidth": 80,
   "tabWidth": 2,
@@ -12,3 +15,4 @@
   "requirePragma": false,
   "insertPragma": false
 }
+>>>>>>> dev

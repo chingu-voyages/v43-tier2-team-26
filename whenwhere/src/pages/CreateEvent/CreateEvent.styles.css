@@ -1,0 +1,17 @@
+.form-calendar {
+  background: linear-gradient(
+    135deg,
+    var(--primary-light),
+    var(--primary-dark)
+  );
+}
+
+.form-header {
+  color: var(--primary-dark);
+}
+
+.form-calendar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

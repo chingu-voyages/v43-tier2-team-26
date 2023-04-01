@@ -1,5 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { CreateEvent } from "./pages/CreateEvent/CreateEvent";
 
 function App() {
   return (
