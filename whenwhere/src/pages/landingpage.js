@@ -11,9 +11,22 @@ const LandingPage = () => {
         </header>
         <main>
           <section>
-            <h3>Real time meeting scheduling<br>
-            </br> with text reminder</h3> 
+            <h4>Real time meeting scheduling<br>
+            </br> with text reminder</h4> 
           </section>
+
+          <div className="bman-container">
+            <div className="bman"></div>
+          </div>
+          <div className="hajia-container">
+            <div className="hajia"></div>
+          </div>
+          <div className="richman-container">
+            <div className="richman"></div>
+          </div>
+          <div className="suitman-container">
+            <div className="suitman"></div>
+          </div>
 
         </main>
         <footer>
