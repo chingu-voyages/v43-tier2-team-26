@@ -11,9 +11,10 @@ const LandingPage = () => {
         </header>
         <main>
           <section>
-            <h2>Real time meeting scheduling<br>
-            </br> with text reminder</h2>
+            <h3>Real time meeting scheduling<br>
+            </br> with text reminder</h3> 
           </section>
+
         </main>
         <footer>
           <p>Copyright &copy; WhenWhere 2023</p>

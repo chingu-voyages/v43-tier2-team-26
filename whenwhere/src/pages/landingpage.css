@@ -1,63 +1,64 @@
 .App {position: relative;
-    width: 1440px;
-    height: 1024px;
-    font-family: raleway;
-    color: #ffff ;
-    background: linear-gradient(90deg, #9400D3 0%, #4B0082 100%);
-    }
-    
-    header{
-      color: #ffff;
-      padding: 100px;
-    }
-    
-    h1 {
-      position: absolute;
-    width: 900px;
-    height: 100px;
-    left: 64px;
-    top: 100px;
-    
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 75px;
-    line-height: 80px;
-    
-    }
-    
-    main {
-      padding: 20px
-    }
-    
-    h2 {
-      position: absolute;
-    width: 510px;
-    height: 84px;
-    left: 64px;
-    top: 300px;
-    
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 450;
-    font-size: 30px;
-    line-height: 30px;
-    
-    color: #FFFFFF;
-    }
-    
-    section {
-      margin-bottom: 700px;
-    }
-    
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    
-    
-    
-    
-    
+  width: 1440px;
+  height: 1024px;
+  font-family: raleway;
+  color: #ffff ;
+  background: linear-gradient(90deg, #9400D3 0%, #4B0082 100%);
+  }
+  
+  header{
+    color: #ffff;
+    padding: 100px;
+  }
+  
+  h1 {
+    position: absolute;
+  width: 900px;
+  height: 100px;
+  left: 64px;
+  top: 100px;
+  
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 80px;
+  
+  }
+  
+  main {
+    padding: 20px
+  }
+  
+  h3 {
+    position: absolute;
+  width: 510px;
+  height: 84px;
+  left: 64px;
+  top: 300px;
+  
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 450;
+  font-size: 30px;
+  line-height: 30px;
+  
+  color: #FFFFFF;
+  }
+  
+  
+  section {
+    margin-bottom: 700px;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  
+  
+  
+  
