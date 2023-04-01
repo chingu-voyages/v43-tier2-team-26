@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
   "plugins": ["react", "jest"],
   "parserOptions": {
@@ -17,13 +16,5 @@
   },
   "rules": {
     "react/prop-types": "off"
-=======
-  "extends": ["react-app", "plugin:prettier/recommended"],
-  "plugins": ["prettier", "react-hooks"],
-  "rules": {
-    "prettier/prettier": "error",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
->>>>>>> dev
   }
 }
