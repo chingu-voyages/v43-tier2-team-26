@@ -1,0 +1,36 @@
+.custom-calendar {
+  background-color: white;
+  min-width: 100%;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-calendar .rmdp-calendar .rmdp-week {
+  width: 60vw;
+  height: 5vh;
+}
+
+@media (min-width: 768px) {
+  .custom-calendar .rmdp-calendar .rmdp-week {
+    width: 30vw;
+    height: 5vh;
+  }
+}
+
+.form-calendar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.calendar-wrapper {
+  width: 100%;
+}
+
+@media (min-width: 1200px) {
+  div.calendar-wrapper {
+    width: 80%;
+  }
+}
