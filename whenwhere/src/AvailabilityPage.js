@@ -1,29 +1,48 @@
-import React, {useState} from 'react';
-import { Container, Row, Col, Table } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AvailabilityGrid from './AvailabilityGrid.js'
-
-
 
 function AvailabilityPage() {
   return (
     <div id="YouAvailability" className="YouGrid">
       <Container>
         <Row>
-          <Col>
-            <h2>Enter your availability</h2>
+          <Col md={6}>
+            <Row>
+              <Col>
+                <h2>Enter your availability</h2>
+                <p>click and drag on cells to select a time slot</p>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <AvailabilityGrid />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <p className="mt-4">Availability is automatically saved.</p>
+              </Col>
+            </Row>
           </Col>
-        </Row>
-        <Row>
-          <Col>
-            <AvailabilityGrid />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <p className="mt-4">
-              By submitting your availability, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
-            </p>
+
+          <Col md={6}>
+            <Row>
+              <Col>
+                <h2>Group availability</h2>
+                <p>available times are shown in green</p>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <AvailabilityGrid />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <p className="mt-4">Group members available:</p>
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Container>
@@ -32,4 +51,3 @@ function AvailabilityPage() {
 }
 
 export default AvailabilityPage;
-        

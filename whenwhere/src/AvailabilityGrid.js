@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './AvailabilityGrid.styles.css';
 
@@ -13,7 +13,12 @@ function AvailabilityGrid() {
 
   // Event handlers for clicking and dragging on the grid
   function handleMouseDown(row, col) {
-    setSelected([{ row, col }]);
+    if (isCellSelected(row, col)) {
+      const newSelected = selected.filter((cell) => !(cell.row === row && cell.col === col));
+      setSelected(newSelected);
+    } else {
+      setSelected([...selected, { row, col }]);
+    }
   }
 
   function handleMouseEnter(row, col) {
@@ -26,11 +31,13 @@ function AvailabilityGrid() {
 
       for (let r = Math.min(startRow, endRow); r <= Math.max(startRow, endRow); r++) {
         for (let c = Math.min(startCol, endCol); c <= Math.max(startCol, endCol); c++) {
-          newSelected.push({ row: r, col: c });
+          if (!isCellSelected(r, c)) {
+            newSelected.push({ row: r, col: c });
+          }
         }
       }
 
-      setSelected(newSelected);
+      setSelected([...selected, ...newSelected]);
     }
   }
 
