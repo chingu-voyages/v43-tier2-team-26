@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './AvailabilityGrid.styles.css';
+// import './AvailabilityGrid.styles.css';
+
+const styles = {
+  selectedCell: {
+    backgroundColor: '#00c853',
+  },
+};
 
 function AvailabilityGrid() {
   const [selected, setSelected] = useState([]);
@@ -11,11 +17,16 @@ function AvailabilityGrid() {
     return selected.some((cell) => cell.row === row && cell.col === col);
   }
 
+  // Helper function to deselect a cell
+  function deselectCell(row, col) {
+    const newSelected = selected.filter((cell) => !(cell.row === row && cell.col === col));
+    setSelected(newSelected);
+  }
+
   // Event handlers for clicking and dragging on the grid
   function handleMouseDown(row, col) {
     if (isCellSelected(row, col)) {
-      const newSelected = selected.filter((cell) => !(cell.row === row && cell.col === col));
-      setSelected(newSelected);
+      deselectCell(row, col);
     } else {
       setSelected([...selected, { row, col }]);
     }
@@ -48,27 +59,52 @@ function AvailabilityGrid() {
   // Generate the table rows and cells for the grid
   const rows = [];
   const times = ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM'];
-  for (let r = 0; r < times.length; r++) {
-    const cells = [];
-    cells.push(
-      <td key={`time-${r}`}>
-        {times[r]}
+
+  // Create an array of boolean values to represent selected times
+  const timeSelection = times.map((time) => {
+    return selected.some((cell) => cell.row === times.indexOf(time));
+  });
+
+  // Generate the time column
+  const timeColumn = times.map((time) => {
+    return (
+      <td key={`time-${time}`} style={{ fontWeight: 'bold' }}>
+        {time}
       </td>
     );
-    for (let c = 0; c < 1; c++) {
-      const isSelected = isCellSelected(r, c);
-      cells.push(
-        <td
-          key={`${r}-${c}`}
-          className={isSelected ? 'selected' : ''}
-          onMouseDown={() => handleMouseDown(r, c)}
-          onMouseEnter={() => handleMouseEnter(r, c)}
-          onMouseUp={handleMouseUp}
-        />
-      );
-    }
-    rows.push(<tr key={r}>{cells}</tr>);
-  }
+  });
+
+  // Generate the availability column
+  const availabilityColumn = timeSelection.map((isSelected, index) => {
+    const cellStyle = isSelected ? styles.selectedCell : {};
+    return (
+      <td
+        key={`cell-${index}`}
+        style={cellStyle}
+        onMouseDown={() => handleMouseDown(index, 0)}
+        onMouseEnter={() => handleMouseEnter(index, 0)}
+        onMouseUp={handleMouseUp}
+      />
+    );
+  });
+
+  // Add time and availability columns to the rows array
+  rows.push(
+    <tr key="time-row">
+      {timeColumn}
+      <td key="availability-label" style={{ fontWeight: 'bold' }}>
+        Availability
+      </td>
+    </tr>
+  );
+  rows.push(
+    <tr key="availability-row">
+      {availabilityColumn}
+      <td key="availability-label" style={{ fontWeight: 'bold' }}>
+        Availability
+      </td>
+    </tr>
+  );
 
   return (
     <Table bordered className="availability-grid">
