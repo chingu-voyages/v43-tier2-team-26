@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 //import "./App.css";
 //import { CreateEvent } from "./pages/CreateEvent/CreateEvent";
-import LandingPage from "./pages/landingpage.js";
-
+//import LandingPage from "./pages/landingpage.js";
+import { AppRoutes } from './routes/AppRoutes';
 
 const App = () => {
   return (
-    <div className="App">
-      <LandingPage />
+    <div>
+      <AppRoutes />
     </div>
   );
 };
