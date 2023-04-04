@@ -1,0 +1,13 @@
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--primary-light),
+    var(--primary-dark)
+  );
+  border: none;
+}
+
+.btn-primary:hover {
+  filter: brightness(130%);
+  border: none;
+}
