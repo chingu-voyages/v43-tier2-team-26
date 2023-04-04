@@ -20,11 +20,6 @@ function AvailabilityPage() {
                 <AvailabilityGrid />
               </Col>
             </Row>
-            <Row>
-              <Col>
-                <p className="mt-4">Availability is automatically saved.</p>
-              </Col>
-            </Row>
           </Col>
 
           <Col md={6}>
@@ -34,7 +29,7 @@ function AvailabilityPage() {
                 <p>available times are shown in green</p>
               </Col>
             </Row>
-            
+
             <Row>
               <Col>
                 <GroupGrid />

@@ -41,7 +41,7 @@ function GroupGrid() {
         <tbody>
           {availabilityData.map((hour) => (
             <tr key={hour.time}>
-              <td>{hour.time}</td>
+              <td style={{ fontWeight: 'bold' }}>{hour.time}</td>
               <td
                 className={hour.availableMembers.length > 0 ? "available" : ""}
                 style={hour.availableMembers.length > 0 ? {backgroundColor: "#00c853"} : {}}

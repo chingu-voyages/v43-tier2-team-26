@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import './AvailabilityGrid.styles.css';
@@ -12,78 +12,47 @@ const styles = {
 function AvailabilityGrid() {
   const [selected, setSelected] = useState([]);
 
+  useEffect(() => {
+    // Call API to save selected cells to the database
+  }, [selected]);
+
   // Helper function to determine if a cell is selected
-  function isCellSelected(row, col) {
-    return selected.some((cell) => cell.row === row && cell.col === col);
+  function isCellSelected(time) {
+    return selected.includes(time);
   }
 
-  // Helper function to deselect a cell
-  function deselectCell(row, col) {
-    const newSelected = selected.filter((cell) => !(cell.row === row && cell.col === col));
-    setSelected(newSelected);
-  }
-
-  // Event handlers for clicking and dragging on the grid
-  function handleMouseDown(row, col) {
-    if (isCellSelected(row, col)) {
-      deselectCell(row, col);
+  // Helper function to select/deselect a cell
+  function handleCellClick(time) {
+    if (isCellSelected(time)) {
+      const newSelected = selected.filter((t) => t !== time);
+      setSelected(newSelected);
     } else {
-      setSelected([...selected, { row, col }]);
+      setSelected([...selected, time]);
     }
-  }
-
-  function handleMouseEnter(row, col) {
-    if (selected.length) {
-      const startRow = selected[0].row;
-      const startCol = selected[0].col;
-      const endRow = row;
-      const endCol = col;
-      const newSelected = [];
-
-      for (let r = Math.min(startRow, endRow); r <= Math.max(startRow, endRow); r++) {
-        for (let c = Math.min(startCol, endCol); c <= Math.max(startCol, endCol); c++) {
-          if (!isCellSelected(r, c)) {
-            newSelected.push({ row: r, col: c });
-          }
-        }
-      }
-
-      setSelected([...selected, ...newSelected]);
-    }
-  }
-
-  function handleMouseUp() {
-    // Save selected cells to the database
   }
 
   // Generate the table rows and cells for the grid
   const rows = [];
-  const times = ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM'];
-
-  // Create an array of boolean values to represent selected times
-  const timeSelection = times.map((time) => {
-    return selected.some((cell) => cell.row === times.indexOf(time));
-  });
+  const times = ['9', '10', '11', '12', '13', '14', '15', '16', '17'];
 
   // Generate the time column
   const timeColumn = times.map((time) => {
     return (
       <td key={`time-${time}`} style={{ fontWeight: 'bold' }}>
-        {time}
+        {time}:00
       </td>
     );
   });
 
   // Generate the availability column
-  const availabilityColumn = timeSelection.map((isSelected, index) => {
-    const cellStyle = isSelected ? styles.selectedCell : {};
+  const availabilityColumn = times.map((time) => {
+    const isAvailable = isCellSelected(time);
+    const cellStyle = isAvailable ? styles.selectedCell : {};
     return (
       <td
-        key={`cell-${index}`}
+        key={`cell-${time}`}
         style={cellStyle}
-        onMouseDown={() => handleMouseDown(index, 0)}
-        onMouseEnter={() => handleMouseEnter(index, 0)}
-        onMouseUp={handleMouseUp}
+        onClick={() => handleCellClick(time)}
       />
     );
   });
@@ -91,31 +60,29 @@ function AvailabilityGrid() {
   // Add time and availability columns to the rows array
   rows.push(
     <tr key="time-row">
-      {timeColumn}
-      <td key="availability-label" style={{ fontWeight: 'bold' }}>
-        Availability
-      </td>
+      <th>Time</th>
+      <th>Availability</th>
     </tr>
   );
-  rows.push(
-    <tr key="availability-row">
-      {availabilityColumn}
-      <td key="availability-label" style={{ fontWeight: 'bold' }}>
-        Availability
-      </td>
-    </tr>
-  );
+  for (let i = 0; i < times.length; i++) {
+    const time = times[i];
+    rows.push(
+      <tr key={`availability-row-${time}`}>
+        <td style={{ fontWeight: 'bold' }}>{time}:00</td>
+        {availabilityColumn[i]}
+      </tr>
+    );
+  }
+  
+  
 
   return (
-    <Table bordered className="availability-grid">
-      <thead>
-        <tr>
-          <th>Time</th>
-          <th>Availability</th>
-        </tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </Table>
+    <div>
+      <Table bordered className="availability-grid">
+        <tbody>{rows}</tbody>
+      </Table>
+      <div>Availability is saved automatically.</div>
+    </div>
   );
 }
 
