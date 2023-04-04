@@ -30,19 +30,21 @@ function GroupGrid() {
 
   return (
     <div>
-      <Table striped bordered hover>
+      <Table bordered>
         <thead>
           <tr>
             <th>Time</th>
             <th>Availability</th>
           </tr>
         </thead>
+
         <tbody>
           {availabilityData.map((hour) => (
             <tr key={hour.time}>
               <td>{hour.time}</td>
               <td
                 className={hour.availableMembers.length > 0 ? "available" : ""}
+                style={hour.availableMembers.length > 0 ? {backgroundColor: "#00c853"} : {}}
                 onMouseOver={() =>
                   handleAvailabilityHover(hour.time, hour.availableMembers)
                 }
