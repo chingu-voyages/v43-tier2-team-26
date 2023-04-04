@@ -12,7 +12,7 @@ function AvailabilityPage() {
             <Row>
               <Col>
                 <h2>Enter your availability</h2>
-                <p>click and drag on cells to select a time slot</p>
+                <p>click on time slots to select/deselect</p>
               </Col>
             </Row>
             <Row>
