@@ -1,6 +1,7 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AvailabilityGrid from './AvailabilityGrid.js'
+import GroupGrid from './GroupGrid.js'
 
 function AvailabilityPage() {
   return (
@@ -33,16 +34,13 @@ function AvailabilityPage() {
                 <p>available times are shown in green</p>
               </Col>
             </Row>
+            
             <Row>
               <Col>
-                <AvailabilityGrid />
+                <GroupGrid />
               </Col>
             </Row>
-            <Row>
-              <Col>
-                <p className="mt-4">Group members available:</p>
-              </Col>
-            </Row>
+           
           </Col>
         </Row>
       </Container>
