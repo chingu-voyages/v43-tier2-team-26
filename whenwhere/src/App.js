@@ -1,15 +1,8 @@
-import React from "react";
-//import "./App.css";
-//import { CreateEvent } from "./pages/CreateEvent/CreateEvent";
-import LandingPage from "./pages/landingpage.js";
-
+import React from 'react';
+import { AppRoutes } from './routes/AppRoutes';
 
 const App = () => {
-  return (
-    <div className="App">
-      <LandingPage />
-    </div>
-  );
+  return <AppRoutes />;
 };
 
 export default App;
