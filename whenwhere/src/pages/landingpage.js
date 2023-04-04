@@ -11,8 +11,8 @@ const LandingPage = () => {
         </header>
         <main>
           <section>
-            <h4>Real time meeting scheduling<br>
-            </br> with text reminder</h4> 
+            <h5>Real time meeting scheduling<br>
+            </br> with text reminder</h5> 
           </section>
 
           <div className="bman-container">
