@@ -45,16 +45,7 @@
   
   color: #FFFFFF;
   }
- 
-  .absolute-positioned {
-    position: absolute;
-    width: 355px;
-    height: 79px;
-    left: 84px;
-    top: 695px;
-    background: #B000FC;
-    border-radius: 50px;
-  }
+  
   
   button {
     position: absolute;
