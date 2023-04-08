@@ -19,7 +19,6 @@ const LandingPage = () => {
               </form>
             </div>
           </section>
-          <div className="absolute-positioned" />
           <div className="bman-container">
             <div className="bman"></div>
           </div>
