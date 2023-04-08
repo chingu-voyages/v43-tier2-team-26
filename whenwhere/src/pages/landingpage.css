@@ -45,13 +45,42 @@
   
   color: #FFFFFF;
   }
+ 
+  .absolute-positioned {
+    position: absolute;
+    width: 355px;
+    height: 79px;
+    left: 84px;
+    top: 695px;
+    background: #B000FC;
+    border-radius: 50px;
+  }
   
+  button {
+    position: absolute;
+    left: 84px;
+    top: 400px;
+    padding: 10px 20px;
+    margin: 100px;
+    border-radius: 100px;
+    border: none;
+    background-color: #B000FC;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #005FE6;
+  }
+
   .bman-container {
     position: absolute;
     width: 180px;
     height: 338px;
     left: 850px;
     top: 64px;
+
   }
   
   .bman {

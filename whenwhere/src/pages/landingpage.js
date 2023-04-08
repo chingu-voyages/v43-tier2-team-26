@@ -13,8 +13,13 @@ const LandingPage = () => {
           <section>
             <h5>Real time meeting scheduling<br>
             </br> with text reminder</h5> 
+            <div className="button">
+              <form>
+                <button type="submit">Schedule Meeting</button>
+              </form>
+            </div>
           </section>
-
+          <div className="absolute-positioned" />
           <div className="bman-container">
             <div className="bman"></div>
           </div>
@@ -35,6 +40,5 @@ const LandingPage = () => {
       </div>
     );
   }
-  
   export default LandingPage;
   
