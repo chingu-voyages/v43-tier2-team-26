@@ -1,0 +1,183 @@
+///Sign Up
+
+const [signUpInfo, setSignUpInfo] = useState({});
+	
+const SignUp = (e)=>{
+e.preventDefault()	
+
+fetch("/w/signup",{
+	
+method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        user: signUpInfo
+    })
+
+
+}).then((signUpStatus)=>{console.log(signUpStatus);signUpStatus.status === 200 ? setSignUpMessage('Your Account has been sucessfully created') : setSignUpMessage('Could not complete user signup') })
+}
+
+
+/// Sign In
+const [signInInfo, setSignInInfo] = useState({});
+
+const handleSubmitSignIn = (e)=>{
+e.preventDefault()	
+fetch("/w/signin",{
+	
+method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+		"Access-Control-Allow-Origin": "*",
+		'Authorization' : `Bearer ${authToken}`,
+        'Accept' : 'application/json',
+		'withCredentials': true
+		
+    },
+    body: JSON.stringify({
+        user: signInInfo
+    })
+
+}).then((response) => response.json())
+   .then((data) => {
+      console.log(data);
+      
+   })
+   .catch((err) => {
+      console.log(err.message);
+   });
+
+}
+
+
+/// Create Events
+
+const [createEvents, setCreateEvents] = useState({
+
+meeting_title:'FIX BUGS',
+time_from:'9:00AM',
+time_to:'11:00AM',
+date_from:'2023/04/15',
+date_to:'2023/04/20',
+time_zone:'Eroupe/Sweeden (GMT+2)'	
+	
+});
+
+
+const createEvent = (e)=>{
+e.preventDefault()	
+
+fetch("/w/createevent",{
+	
+method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        event: createEvents
+    })
+
+
+}).then((signUpStatus)=>{signUpStatus.status === 200 ? setSignUpMessage('Your Event has been sucessfully created') : setSignUpMessage('Could not create your event') })
+
+
+}
+
+
+
+////////////// DELETE EVENTS
+const [delEvents, setDelEvents] = useState("m6dq098FS");
+
+const deleteEvent = (e)=>{
+e.preventDefault()	
+
+fetch("/w/deleteevent/",{
+	
+method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+	body:JSON.stringify({evtId:delEvents})
+    
+}).then((signUpStatus)=>{signUpStatus.status === 200 ? setSignUpMessage('Your Event has been sucessfully created') : setSignUpMessage('Could not create your event') })
+}
+
+
+
+/// JOIN MEETING
+
+const [joinAmeeting,setJoinAmeeting] = useState({
+'event_title' : 'Coding wat time App',
+'event_Id' : 'ct3lt46Dy',
+'name' : ' Bill Gates',
+'time' : '5pm',
+'event_day' : '1-4-2023',
+'time_zone' : 'GMT+1',
+'location' : 'OSAKA',
+'team_member' : '64331624aec75ac9d1a121ae',
+})
+
+
+const joinMeeting = async(e)=>{
+e.preventDefault()	
+
+fetch("/w/joinmeeting",{
+	
+method: 'POST',
+    headers: {
+        'Content-Type': 'application/json; charset=UTF-8'
+    },
+	body: JSON.stringify(joinAmeeting)
+  
+
+
+}) .then((response) => response.json())
+   .then((data) => {
+      console.log(data);
+      // Handle data
+   })
+   .catch((err) => {
+      console.log(err.message);
+   });
+
+}
+
+
+
+/////////////////// CANCEL MY Meeting
+
+const [cancelAmeeting,setcancelAmeeting] = useState({
+'event_title' : 'Coding wat time App',
+'event_Id' : 'ct3lt46Dy',
+'my_meeting_shedule_id' : '643316c3aec75ac9d1a121b1', //This the id of the current doc
+'team_member' : '64331624aec75ac9d1a121ae',
+})
+
+
+const cancelMeeting = async(e)=>{
+e.preventDefault()	
+
+fetch("/w/cancelmeeting",{
+	
+method: 'POST',
+    headers: {
+        'Content-Type': 'application/json; charset=UTF-8'
+    },
+	body: JSON.stringify(cancelAmeeting)
+  
+
+
+}) .then((response) => response.json())
+   .then((data) => {
+      console.log(data);
+      
+   })
+   .catch((err) => {
+      console.log(err.message);
+   });
+
+}
+
+
