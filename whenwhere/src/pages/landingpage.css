@@ -1,151 +1,144 @@
-  .App {position: relative;
+.App {
+  position: relative;
   width: 1440px;
   height: 1024px;
   font-family: raleway;
-  color: #ffff ;
-  background: linear-gradient(90deg, #9400D3 0%, #4B0082 100%);
-  }
-  
-  header{
-    color: #ffff;
-    padding: 100px;
-  }
-  
-  h1 {
-    position: absolute;
+  color: #ffff;
+  background: linear-gradient(90deg, #9400d3 0%, #4b0082 100%);
+}
+
+header {
+  color: #ffff;
+  padding: 100px;
+}
+
+h1 {
+  position: absolute;
   width: 900px;
   height: 100px;
   left: 64px;
   top: 170px;
-  
+
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 700;
   font-size: 75px;
   line-height: 80px;
-  
-  }
-  
-  main {
-    padding: 20px
-  }
-  
-  h5 {
-    position: absolute;
+}
+
+main {
+  padding: 20px;
+}
+
+h5 {
+  position: absolute;
   width: 510px;
   height: 84px;
   left: 64px;
   top: 350px;
-  
+
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 350;
   font-size: 25px;
   line-height: 30px;
-  
-  color: #FFFFFF;
-  }
-  
-  
-  button {
-    position: absolute;
-    left: 84px;
-    top: 400px;
-    padding: 10px 20px;
-    margin: 100px;
-    border-radius: 100px;
-    border: none;
-    background-color: #B000FC;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #005FE6;
-  }
 
-  .bman-container {
-    position: absolute;
-    width: 180px;
-    height: 338px;
-    left: 850px;
-    top: 64px;
+  color: #ffffff;
+}
 
-  }
-  
-  .bman {
-    width: 100%;
-    height: 100%;
-    background: url('landingimages/bman.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 50px;
-  }
+button.button {
+  position: absolute;
+  left: 84px;
+  top: 400px;
+  padding: 10px 20px;
+  margin: 100px;
+  border-radius: 100px;
+  border: none;
+  color: #b000fc;
+  background-color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
 
-  .hajia-container {
-    position: absolute;
-    width: 180px;
-    height: 338px;
-    left: 1100px;
-    top: 213px;
-  }
-  
-  .hajia {
-    width: 100%;
-    height: 100%;
-    background: url('landingimages/hajia.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 50px;
-  }
+button:hover {
+  background-color: #005fe6;
+}
 
-  .richman-container {
-    position: absolute;
-    width: 180px;
-    height: 338px;
-    left: 850px;
-    top: 436px;
-  }
-  
-  .richman {
-    width: 100%;
-    height: 100%;
-    background: url('landingimages/richman.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 50px;
-  }
+.bman-container {
+  position: absolute;
+  width: 180px;
+  height: 338px;
+  left: 850px;
+  top: 64px;
+}
 
-  .suitman-container {
-    position: absolute;
-    width: 180px;
-    height: 338px;
-    left: 1100px;
-    top: 582px;
-  }
-  
-  .suitman {
-    width: 100%;
-    height: 100%;
-    background: url('landingimages/suitman.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 50px;
-  }
+.bman {
+  width: 100%;
+  height: 100%;
+  background: url('landingimages/bman.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50px;
+}
 
-  section {
-    margin-bottom: 700px;
-  }
-  
-  footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  
-  
-  
-  
+.hajia-container {
+  position: absolute;
+  width: 180px;
+  height: 338px;
+  left: 1100px;
+  top: 213px;
+}
+
+.hajia {
+  width: 100%;
+  height: 100%;
+  background: url('landingimages/hajia.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50px;
+}
+
+.richman-container {
+  position: absolute;
+  width: 180px;
+  height: 338px;
+  left: 850px;
+  top: 436px;
+}
+
+.richman {
+  width: 100%;
+  height: 100%;
+  background: url('landingimages/richman.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50px;
+}
+
+.suitman-container {
+  position: absolute;
+  width: 180px;
+  height: 338px;
+  left: 1100px;
+  top: 582px;
+}
+
+.suitman {
+  width: 100%;
+  height: 100%;
+  background: url('landingimages/suitman.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50px;
+}
+
+section {
+  margin-bottom: 700px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
