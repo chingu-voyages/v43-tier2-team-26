@@ -1,0 +1,4 @@
+Place the file in this folder in the root of the client side src folder.
+
+Install - npm i http-proxy-middleware
+
