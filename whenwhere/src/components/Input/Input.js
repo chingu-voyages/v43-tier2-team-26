@@ -1,6 +1,6 @@
-import React from "react";
-import Form from "react-bootstrap/Form";
-import { useFormContext } from "react-hook-form";
+import React from 'react';
+import Form from 'react-bootstrap/Form';
+import { useFormContext } from 'react-hook-form';
 
 export const Input = () => {
   const {
@@ -13,8 +13,8 @@ export const Input = () => {
       <Form.Control
         type="text"
         id="eventName"
-        {...register("eventName", {
-          required: "Event Name is required",
+        {...register('eventName', {
+          required: 'Event Name is required',
         })}
       />
       {errors.eventName && (
