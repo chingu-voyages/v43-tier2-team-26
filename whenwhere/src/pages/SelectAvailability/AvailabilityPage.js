@@ -1,3 +1,4 @@
+import React from React;
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AvailabilityGrid } from './AvailabilityGrid.js'
