@@ -1,7 +1,7 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AvailabilityGrid from './AvailabilityGrid.js'
-import GroupGrid from './GroupGrid.js'
+import { AvailabilityGrid } from './AvailabilityGrid.js'
+import { GroupGrid } from './GroupGrid.js'
 
 
 export const AvailabilityPage = () => {
