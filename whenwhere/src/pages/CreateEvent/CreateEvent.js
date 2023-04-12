@@ -65,7 +65,7 @@ export const CreateEvent = () => {
             className="d-flex flex-column justify-content-center mx-auto"
           >
             <h2 className="text-center form-header my-3 d-none d-md-block">
-              Create the metting for your team
+              Create the meeting for your team
             </h2>
             <Input />
             <p className="fw-bold text-muted">What times might work?</p>
