@@ -1,9 +1,11 @@
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AvailabilityGrid from './AvailabilityGrid.js'
-import GroupGrid from './GroupGrid.js'
+import { AvailabilityGrid } from './AvailabilityGrid.js'
+import { GroupGrid } from './GroupGrid.js'
 
-function AvailabilityPage() {
+
+export const AvailabilityPage = () => {
   return (
     <div id="YouAvailability" className="YouGrid">
       <Container>
@@ -41,6 +43,4 @@ function AvailabilityPage() {
       </Container>
     </div>
   );
-}
-
-export default AvailabilityPage;
+};

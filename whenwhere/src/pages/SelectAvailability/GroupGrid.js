@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 
-function GroupGrid() {
+export const GroupGrid = () => {
   const [availabilityData, setAvailabilityData] = useState([]);
   const [availableGroupMembers, setAvailableGroupMembers] = useState([]);
 
@@ -62,6 +62,4 @@ function GroupGrid() {
       </ul>
     </div>
   );
-}
-
-export default GroupGrid;
+};

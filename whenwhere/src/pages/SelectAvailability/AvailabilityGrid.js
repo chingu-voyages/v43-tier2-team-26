@@ -9,7 +9,7 @@ const styles = {
   },
 };
 
-function AvailabilityGrid() {
+export const AvailabilityGrid = () => {
   const [selected, setSelected] = useState([]);
 
   useEffect(() => {
@@ -59,8 +59,8 @@ function AvailabilityGrid() {
 
   // Add time and availability columns to the rows array
   rows.push(
-    <tr key="time-row">
-      <th>Time</th>
+    <tr key="header-row">
+      {timeColumn}
       <th>Availability</th>
     </tr>
   );
@@ -84,6 +84,4 @@ function AvailabilityGrid() {
       <div>Availability is saved automatically.</div>
     </div>
   );
-}
-
-export default AvailabilityGrid;
+};
