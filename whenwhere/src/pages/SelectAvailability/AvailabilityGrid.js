@@ -59,8 +59,8 @@ export const AvailabilityGrid = () => {
 
   // Add time and availability columns to the rows array
   rows.push(
-    <tr key="time-row">
-      <th>Time</th>
+    <tr key="header-row">
+      {timeColumn}
       <th>Availability</th>
     </tr>
   );
