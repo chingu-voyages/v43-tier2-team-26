@@ -9,7 +9,7 @@ const styles = {
   },
 };
 
-function AvailabilityGrid() {
+export const AvailabilityGrid = () => {
   const [selected, setSelected] = useState([]);
 
   useEffect(() => {
@@ -84,6 +84,4 @@ function AvailabilityGrid() {
       <div>Availability is saved automatically.</div>
     </div>
   );
-}
-
-export default AvailabilityGrid;
+};
