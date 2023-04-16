@@ -9,10 +9,10 @@ export const AvailabilityPage = () => {
   return (
     <div id="YouAvailability" className="YouGrid">
       <Container>
-        <Row>
-          <Col md={6}>
+        <Row className='min-vh-100'>
+          <Col md={6} className='p-5 d-flex flex-column text-white'>
             <Row>
-              <Col>
+              <Col >
                 <h2>Enter your availability</h2>
                 <p>click on time slots to select/deselect</p>
               </Col>
@@ -24,7 +24,7 @@ export const AvailabilityPage = () => {
             </Row>
           </Col>
 
-          <Col md={6}>
+          <Col md={6} className='p-5 d-flex flex-column text-white'>
             <Row>
               <Col>
                 <h2>Group availability</h2>
