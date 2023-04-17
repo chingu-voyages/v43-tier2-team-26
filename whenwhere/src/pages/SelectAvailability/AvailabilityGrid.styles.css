@@ -1,3 +1,25 @@
-tr.selected {
-    background-color: #00c853;
+:root {
+    --good-match: #00c853;
+    --okay-match: #f9a620;
+    --bad-match: #de1a1a;
 }
+
+body {
+    background: linear-gradient(135deg,
+                var(--primary-light),
+                var(--primary-dark));
+}
+
+
+.selected {
+    background-color: var(--good-match);
+}
+
+th {
+    text-align: center;
+}
+
+tbody {
+    text-align: center;
+}
+
