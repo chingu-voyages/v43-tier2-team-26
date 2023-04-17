@@ -1,68 +1,72 @@
-import React, { useState, useEffect } from 'react';
-import { Table } from 'react-bootstrap';
+import React, { useState } from 'react';
+// import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './AvailabilityGrid.styles.css'
 
-const styles = {
-  selectedCell: {
-    backgroundColor: '#00c853',
-  },
-};
 
-export const AvailabilityGrid = () => {
-  const [selected, setSelected] = useState([]);
+export const AvailabilityGrid = ({ daysDiff, timeDiff }) => {
+  const [selectedCells, setSelectedCells] = useState([]);
 
-  useEffect(() => {
-    // Call API to save selected cells to the database
-  }, [selected]);
-
-  // Helper function to determine if a cell is selected
-  function isCellSelected(time) {
-    return selected.includes(time);
-  }
-
-  // Helper function to select/deselect a cell
-  function handleCellClick(time) {
-    if (isCellSelected(time)) {
-      const newSelected = selected.filter((t) => t !== time);
-      setSelected(newSelected);
+  const toggleCell = (rowIndex, colIndex) => {
+    const cell = `${rowIndex},${colIndex}`;
+    if (selectedCells.includes(cell)) {
+      setSelectedCells(selectedCells.filter((c) => c !== cell));
     } else {
-      setSelected([...selected, time]);
+      setSelectedCells([...selectedCells, cell]);
     }
-  }
+  };
 
-  // Generate the table rows for the grid
-  const rows = [];
-  const times = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
+  const getCellClass = (rowIndex, colIndex) => {
+    const cell = `${rowIndex},${colIndex}`;
+    return selectedCells.includes(cell) ? "selected" : "";
+  };
 
-  for (let i = 0; i < times.length; i++) {
-    const time = times[i];
-    const isAvailable = isCellSelected(time);
-    const cellStyle = isAvailable ? styles.selectedCell : {};
+  const renderTableHeader = () => {
+    const headers = [];
+    for (let i = 0; i < daysDiff; i++) {
+      const date = new Date();
+      date.setDate(date.getDate() + i);
+      const dayOfWeek = date.toLocaleDateString("en-US", { weekday: "long" });
+      const month = date.toLocaleDateString("en-US", { month: "short" });
+      const day = date.toLocaleDateString("en-US", { day: "numeric" });
+      headers.push(
+        <th key={i} className="header">
+          <div className="day">{dayOfWeek}</div>
+          <div className="date">
+            {month} {day}
+          </div>
+        </th>
+      );
+    }
+    return <tr>{headers}</tr>;
+  };
 
-    rows.push(
-      <tr key={`availability-row-${time}`}>
-        <td style={{ fontWeight: 'bold' }}>{time}</td>
-        <td
-          style={cellStyle}
-          onClick={() => handleCellClick(time)}
-        />
-      </tr>
-    );
-  }
+  const renderTableRows = () => {
+    const rows = [];
+    for (let i = 0; i < timeDiff; i++) {
+      const startHour = i + 9;
+      const endHour = startHour + 1;
+      const row = (
+        <tr key={i}>
+          <td className="time">{`${startHour}:00 - ${endHour}:00`}</td>
+          {Array.from({ length: daysDiff }).map((_, j) => (
+            <td
+              key={j}
+              className={getCellClass(i, j)}
+              onClick={() => toggleCell(i, j)}
+            ></td>
+          ))}
+        </tr>
+      );
+      rows.push(row);
+    }
+    return rows;
+  };
 
   return (
-    <div>
-      <Table bordered className="availability-grid">
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Availability</th>
-          </tr>
-        </thead>
-        <tbody>{rows}</tbody>
-      </Table>
-      <div>Availability is saved automatically.</div>
-    </div>
+    <table className="availability-grid">
+      <thead>{renderTableHeader()}</thead>
+      <tbody>{renderTableRows()}</tbody>
+    </table>
   );
 };

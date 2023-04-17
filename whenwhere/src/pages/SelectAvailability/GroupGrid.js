@@ -28,6 +28,8 @@ export const GroupGrid = () => {
 
   return (
     <div>
+      <h2>Group availability</h2>
+                <p>available times are shown in green</p>
       <Table bordered>
         <thead>
           <tr>
