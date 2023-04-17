@@ -1,9 +1,9 @@
 import React from 'react';
-// import { AppRoutes } from './routes/AppRoutes';
-import { AvailabilityPage } from './pages/SelectAvailability/AvailabilityPage';
+import { AppRoutes } from './routes/AppRoutes';
+
 
 const App = () => {
-  return <AvailabilityPage />;
+  return <AppRoutes />;
 };
 
 export default App;
