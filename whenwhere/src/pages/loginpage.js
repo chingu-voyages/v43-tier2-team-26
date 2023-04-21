@@ -8,6 +8,7 @@ function LoginPage() {
   const [meetingTitle, setMeetingTitle] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -21,6 +22,10 @@ function LoginPage() {
       });
       const responseData = await response.json();
       setMeetingTitle(responseData.meeting_title);
+
+      if (!response) {
+        setError('Something went wrong. Please try again later!');
+      }
     } catch (err) {
       throw new Error('Problem with fetching meeting');
     }
@@ -62,11 +67,18 @@ function LoginPage() {
 
   return (
     <div className="loginPage">
-      <div className="alert alert-light text-center mx-5" role="alert">
-        Your meeting was created. To invite people to this meeting, direct them
-        to: <br />
-        <span>{window.location.href}</span>
-      </div>
+      {error && (
+        <div className="alert alert-danger text-center mx-5" role="alert">
+          {error}
+        </div>
+      )}
+      {!error && (
+        <div className="alert alert-light text-center mx-5" role="alert">
+          Your meeting was created. To invite people to this meeting, direct
+          them to: <br />
+          <span>{window.location.href}</span>
+        </div>
+      )}
       <form
         className="container col-10 col-md-5 col-lg-4 col-xl-3 loginForm"
         onSubmit={handleSubmit}

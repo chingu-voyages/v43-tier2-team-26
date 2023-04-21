@@ -12,7 +12,7 @@ import { convertDate } from '../../utils/covertDate';
 import { useNavigate } from 'react-router-dom';
 
 export const CreateEvent = () => {
-  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
   const methods = useForm();
   const navigate = useNavigate();
 
@@ -38,21 +38,24 @@ export const CreateEvent = () => {
         }),
       });
       const responseData = await response.json();
-      console.log(responseData);
+
       if (!response.ok) {
-        setMessage('Could not create your event');
+        setError('Could not create your event. Please, try again later');
       }
 
-      setMessage('Your Event has been sucessfully created');
       navigate(`/${responseData._id}/login`);
     } catch (error) {
-      setMessage('Could not create your event');
+      setError('Could not create your event. Please, try again later');
     }
   };
 
   return (
     <FormProvider {...methods}>
-      {message}
+      {error && (
+        <div className="alert alert-danger text-center mx-5" role="alert">
+          {error}
+        </div>
+      )}
       <Form onSubmit={methods.handleSubmit(onSubmit)}>
         <Row className="min-vh-100">
           <Col
