@@ -59,7 +59,11 @@ export const CreateEvent = () => {
             md={6}
             className="p-5 form-calendar d-flex flex-column text-white"
           >
-            <p className="fs-3">Select dates range for your meeting</p>
+            <p className="fs-3">Select dates for your meeting</p>
+            <p>
+              Click the start date and the end date. Selection will be made
+              automatically
+            </p>
             <DateRangePicker />
           </Col>
           <Col
@@ -73,7 +77,7 @@ export const CreateEvent = () => {
               Create the meeting for your team
             </h2>
             <Input />
-            <p className="fw-bold text-muted">What times might work?</p>
+            <p className="fw-bold text-muted">Select a time for your meeting</p>
             <TimeRangePicker />
             <SubmitButton>Create Event</SubmitButton>
           </Col>
