@@ -12,7 +12,7 @@ import { convertDate } from '../../utils/covertDate';
 import { useNavigate } from 'react-router-dom';
 
 export const CreateEvent = () => {
-  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
   const methods = useForm();
   const navigate = useNavigate();
 
@@ -38,28 +38,35 @@ export const CreateEvent = () => {
         }),
       });
       const responseData = await response.json();
-      console.log(responseData);
+
       if (!response.ok) {
-        setMessage('Could not create your event');
+        setError('Could not create your event. Please, try again later');
       }
 
-      setMessage('Your Event has been sucessfully created');
       navigate(`/${responseData._id}/login`);
     } catch (error) {
-      setMessage('Could not create your event');
+      setError('Could not create your event. Please, try again later');
     }
   };
 
   return (
     <FormProvider {...methods}>
-      {message}
+      {error && (
+        <div className="alert alert-danger text-center mx-5" role="alert">
+          {error}
+        </div>
+      )}
       <Form onSubmit={methods.handleSubmit(onSubmit)}>
         <Row className="min-vh-100">
           <Col
             md={6}
             className="p-5 form-calendar d-flex flex-column text-white"
           >
-            <p className="fs-3">Select dates range for your meeting</p>
+            <p className="fs-3">Select dates for your meeting</p>
+            <p>
+              Click the start date and the end date. Selection will be made
+              automatically
+            </p>
             <DateRangePicker />
           </Col>
           <Col
@@ -73,7 +80,7 @@ export const CreateEvent = () => {
               Create the meeting for your team
             </h2>
             <Input />
-            <p className="fw-bold text-muted">What times might work?</p>
+            <p className="fw-bold text-muted">Select a time for your meeting</p>
             <TimeRangePicker />
             <SubmitButton>Create Event</SubmitButton>
           </Col>
