@@ -9,17 +9,19 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './CreateEvent.styles.css';
 import { convertDate } from '../../utils/covertDate';
+import { useNavigate } from 'react-router-dom';
 
 export const CreateEvent = () => {
   const [message, setMessage] = useState('');
   const methods = useForm();
+  const navigate = useNavigate();
 
-  const onSubmit = data => {
+  const onSubmit = async data => {
     const dateFrom = convertDate(data.dateRange[0]);
     const dateTo = convertDate(data.dateRange[1]);
 
     try {
-      const response = fetch('/w/createevent', {
+      const response = await fetch('/w/createevent', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,11 +37,14 @@ export const CreateEvent = () => {
           },
         }),
       });
+      const responseData = await response.json();
+      console.log(responseData);
       if (!response.ok) {
         setMessage('Could not create your event');
       }
 
       setMessage('Your Event has been sucessfully created');
+      navigate(`/${responseData._id}/login`);
     } catch (error) {
       setMessage('Could not create your event');
     }
