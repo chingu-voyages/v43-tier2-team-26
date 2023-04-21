@@ -5,6 +5,7 @@
     var(--primary-dark)
   );
   border: none;
+  min-width: 100px;
 }
 
 .btn-primary:hover {

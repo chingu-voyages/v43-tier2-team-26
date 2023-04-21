@@ -12,7 +12,6 @@ export const AppRoutes = () => {
       <Route path="/:id/login" element={<LoginPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/create-event" element={<CreateEvent />} />
-      <Route path="/availability" element={<AvailabilityPage />} />
       <Route
         path="/:id/select-availability/:id"
         element={<AvailabilityPage />}
