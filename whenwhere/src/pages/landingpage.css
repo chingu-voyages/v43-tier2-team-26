@@ -1,24 +1,13 @@
 .App {
-  position: relative;
-  width: 1440px;
-  height: 1024px;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
   font-family: raleway;
   color: #ffff;
   background: linear-gradient(90deg, #9400d3 0%, #4b0082 100%);
 }
 
-header {
-  color: #ffff;
-  padding: 100px;
-}
-
 h1 {
-  position: absolute;
-  width: 900px;
-  height: 100px;
-  left: 64px;
-  top: 170px;
-
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 700;
@@ -26,49 +15,34 @@ h1 {
   line-height: 80px;
 }
 
-main {
-  padding: 20px;
-}
-
 h5 {
-  position: absolute;
-  width: 510px;
-  height: 84px;
-  left: 64px;
-  top: 350px;
-
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 350;
   font-size: 25px;
   line-height: 30px;
-
   color: #ffffff;
 }
 
 button.button {
-  position: absolute;
-  left: 84px;
-  top: 400px;
   padding: 10px 20px;
-  margin: 100px;
-  border-radius: 100px;
+  border-radius: 20px;
   border: none;
-  color: #b000fc;
-  background-color: white;
-  font-size: 2rem;
+  color: #fff;
+  background-color: #333;
+  font-size: 22px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #005fe6;
+  background-color: #292929;
 }
 
 .bman-container {
   position: absolute;
   width: 180px;
-  height: 338px;
-  left: 850px;
+  height: 250px;
+  right: 250px;
   top: 64px;
 }
 
@@ -84,9 +58,9 @@ button:hover {
 .hajia-container {
   position: absolute;
   width: 180px;
-  height: 338px;
-  left: 1100px;
-  top: 213px;
+  height: 250px;
+  right: 25px;
+  top: 113px;
 }
 
 .hajia {
@@ -101,9 +75,9 @@ button:hover {
 .richman-container {
   position: absolute;
   width: 180px;
-  height: 338px;
-  left: 850px;
-  top: 436px;
+  height: 250px;
+  right: 250px;
+  top: 336px;
 }
 
 .richman {
@@ -118,9 +92,9 @@ button:hover {
 .suitman-container {
   position: absolute;
   width: 180px;
-  height: 338px;
-  left: 1100px;
-  top: 582px;
+  height: 250px;
+  right: 25px;
+  top: 382px;
 }
 
 .suitman {
@@ -132,13 +106,13 @@ button:hover {
   border-radius: 50px;
 }
 
-section {
-  margin-bottom: 700px;
-}
-
 footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
   background-color: #333;
   color: #fff;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
 }

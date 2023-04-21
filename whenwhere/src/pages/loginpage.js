@@ -61,27 +61,38 @@ function LoginPage() {
   };
 
   return (
-    <form className="loginForm" onSubmit={handleSubmit}>
-      <div className="text-light">{meetingTitle}</div>
-      <label>
-        Email:
-        <input
-          type="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-      </label>
-      <label>
-        Password:
-        <input
-          type="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-      </label>
-      <SubmitButton>Login</SubmitButton>
-      <div className="forgot-password">Forgot Password?</div>
-    </form>
+    <div className="loginPage">
+      <form
+        className="container col-10 col-md-5 col-lg-4 col-xl-3 loginForm"
+        onSubmit={handleSubmit}
+      >
+        <div className="text-light">{meetingTitle}</div>
+        <div className="form-group">
+          <label htmlFor="email">Email address</label>
+          <input
+            type="email"
+            id="email"
+            className="form-control"
+            placeholder="Enter email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            className="form-control"
+            placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+        </div>
+        <SubmitButton className="w-100 my-5 mx-0">Login</SubmitButton>
+        <div className="forgot-password">Forgot Password?</div>
+      </form>
+    </div>
   );
 }
 

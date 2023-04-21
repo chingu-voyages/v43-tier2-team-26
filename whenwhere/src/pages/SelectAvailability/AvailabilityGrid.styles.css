@@ -1,25 +1,25 @@
 :root {
-    --good-match: #00c853;
-    --okay-match: #f9a620;
-    --bad-match: #de1a1a;
+  --good-match: #00c853;
+  --okay-match: #f9a620;
+  --bad-match: #de1a1a;
 }
 
-body {
-    background: linear-gradient(135deg,
-                var(--primary-light),
-                var(--primary-dark));
+.YouGrid {
+  background: linear-gradient(
+    135deg,
+    var(--primary-light),
+    var(--primary-dark)
+  );
 }
-
 
 .selected {
-    background-color: var(--good-match);
+  background-color: var(--good-match);
 }
 
 th {
-    text-align: center;
+  text-align: center;
 }
 
 tbody {
-    text-align: center;
+  text-align: center;
 }
-
