@@ -18,10 +18,6 @@ const cancelMeeting = require("./events/cancelMeeting.js");
 
 
 
-
-
-
-
 const fs = require("fs");
 
 const cors = require("cors")
@@ -74,10 +70,11 @@ app.use((req, res, next) => {
 
 router.get('/w/viewevent/:id',async(req,res,next)=>{
 try{
-const getEvent = await Events.findOne({_id:req.params.id}).lean()
+const getEvent = await Events.findById(req.params.id).lean((dd)=> console.log(dd))
+
 
 if(getEvent){
-res.status(200).send(getEvent)
+res.status(200).json(getEvent)
 }
 else{
 res.status(400).send({'message':'Error!'})	
@@ -87,7 +84,7 @@ catch(err){}
 });
 
 
-//////////////
+
  
  
  

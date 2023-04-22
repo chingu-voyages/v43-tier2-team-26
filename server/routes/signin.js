@@ -47,19 +47,21 @@ router.post('/',async(req,res,next)=>{
 	
 
 try{
- const user = await User.findOne({email:req.body.user.email}).lean()
+ const user = await User.findOne({username:req.body.user.username}).lean()
 
  //const token = await req.headers.Authorization;
 
  //const verify = jwt.verify(token, process.env.JWT);
 
- console.log(user._id)
+console.log(user)
+
+
 
  if (!user){ 
- return res.status(400).send()
+ return res.status(400).send({err:'username has been taken'})
  }
  else{
- res.status(200).send({'userId' : user._id })	 
+ res.status(200).send({'userId' : user._id, username: user.username })	 
  };
 
 

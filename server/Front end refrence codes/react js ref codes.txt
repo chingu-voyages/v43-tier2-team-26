@@ -1,8 +1,28 @@
-///Sign Up
+import {React,useEffect,useState,useRef} from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import logo from './logo.svg';
+import './App.css';
+import Layout from "./pages/layout";
+import Home from "./pages/index";
+import Blogs from "./pages/blogs";
+import Contact from "./pages/contact";
+import SingIn from "./pages/signin";
+import SignUp from "./pages/signup";
+import Error404  from "./pages/error404";
 
-const [signUpInfo, setSignUpInfo] = useState({});
+function App() {
 	
-const SignUp = (e)=>{
+	const [data, setData] = useState([]);
+	 const [data1, setData1] = useState();
+	 const [signUpMessage, setSignUpMessage] = useState('');
+	 
+	 const [signUpInfo, setSignUpInfo] = useState({});
+	 
+	 const signupButton = useRef(null)
+	 
+	 
+	
+const handleSubmit = (e)=>{
 e.preventDefault()	
 
 fetch("/w/signup",{
@@ -17,10 +37,60 @@ method: 'POST',
 
 
 }).then((signUpStatus)=>{console.log(signUpStatus);signUpStatus.status === 200 ? setSignUpMessage('Your Account has been sucessfully created') : setSignUpMessage('Could not complete user signup') })
+
+
+}
+
+const buttonAnimationSignUp = ()=>{
+	
+signupButton.current.style.marginRight = '5%';
+signupButton.current.style.transition = '00.2s'
+
+const endAnim = setTimeout(()=>	{
+signupButton.current.style.marginRight = '0%';
+signupButton.current.style.transition = '00.2s'
+},300)
+
+return ()=> clearTimeout(endAnim)
+	
 }
 
 
-/// Sign In
+const signUpEmail = (e)=>{	
+setSignUpInfo((info)=>({
+	
+...info,
+username: 	e.target.value
+	
+}))	
+	
+	
+}
+
+const signUpPass = (e)=>{	
+setSignUpInfo((info)=>({
+...info,
+pass: 	e.target.value
+	
+}))	
+ 	
+	
+}
+
+
+	 const [dataSignIn, setDataSignIn] = useState([]);
+	 const [data1SignIn, setData1SignIn] = useState();
+	 const [signInMessage, setSignInMessage] = useState('');
+	 
+	
+	 
+	 const loginButton = useRef(null)
+
+
+const authToken = localStorage.getItem('Authorization-what-time-app')
+
+//console.log(authToken)
+
 const [signInInfo, setSignInInfo] = useState({});
 
 const handleSubmitSignIn = (e)=>{
@@ -52,15 +122,55 @@ method: 'POST',
 }
 
 
-/// Create Events
+
+
+
+const buttonAnimationSignIn = ()=>{
+	
+loginButton.current.style.marginRight = '5%';
+loginButton.current.style.transition = '00.2s'
+
+const endAnim = setTimeout(()=>	{
+loginButton.current.style.marginRight = '0%';
+loginButton.current.style.transition = '00.2s'
+},300)
+
+return ()=> clearTimeout(endAnim)
+}
+
+const signInEmail = (e)=>{	
+setSignInInfo((info)=>({
+	
+...info,
+username: 	e.target.value
+	
+}))	
+}
+
+const signInPass = (e)=>{	
+setSignInInfo((info)=>({
+...info,
+pass: 	e.target.value
+	
+}))		
+}
+
+
+
+
+
+
+//CREATE event
+
 
 const [createEvents, setCreateEvents] = useState({
 
 meeting_title:'FIX BUGS',
-time_from:'9:00AM',
-time_to:'11:00AM',
+time_from:'10:00 AM',
+time_to:'5:00 PM',
 date_from:'2023/04/15',
 date_to:'2023/04/20',
+meeting_dates:['wed 19 Apr 2023','thur 20 Apr 2023','fri 21 Apr 2023','sat 22 Apr 2023','sun 23 Apr 2023'],
 time_zone:'Eroupe/Sweeden (GMT+2)'	
 	
 });
@@ -86,6 +196,25 @@ method: 'POST',
 }
 
 
+const eventTitle = (e)=>{	
+setCreateEvents((info)=>({
+	
+...info,
+[e.target.name]: 	e.target.value
+	
+}))	
+
+console.log(createEvents)
+}
+
+const eventDuration = (e)=>{	
+setCreateEvents((info)=>({
+...info,
+[e.target.name]: 	e.target.value
+	
+}))	
+console.log(createEvents)	
+}
 
 ////////////// DELETE EVENTS
 const [delEvents, setDelEvents] = useState("m6dq098FS");
@@ -101,7 +230,11 @@ method: 'POST',
     },
 	body:JSON.stringify({evtId:delEvents})
     
+
+
 }).then((signUpStatus)=>{signUpStatus.status === 200 ? setSignUpMessage('Your Event has been sucessfully created') : setSignUpMessage('Could not create your event') })
+
+
 }
 
 
@@ -146,7 +279,7 @@ method: 'POST',
 
 
 
-/////////////////// CANCEL MY Meeting
+/////////////////// CANCEL MY AppointMent
 
 const [cancelAmeeting,setcancelAmeeting] = useState({
 'event_title' : 'Coding wat time App',
@@ -180,4 +313,1249 @@ method: 'POST',
 
 }
 
+const meetingShedule = [
 
+ 
+ {
+  "date": "wed 19 Apr 2023",
+  "sheduled_time": [
+   {
+    "time_sheduled": "10:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "10:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "11:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "11:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "12:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "12:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "1:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "1:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "2:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "2:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "3:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "3:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "4:00PM",
+    "last_meeting_shedule": true,
+    "last_meeting_shedule_time": "5:00PM",
+    "members_time_picks": [
+     {
+      "time_picked": "4:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "date": "thur 20 Apr 2023",
+  "sheduled_time": [
+   {
+    "time_sheduled": "10:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "10:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "11:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "11:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "12:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "12:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "1:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "1:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "2:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "2:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "3:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "3:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "4:00PM",
+    "last_meeting_shedule": true,
+    "last_meeting_shedule_time": "5:00PM",
+    "members_time_picks": [
+     {
+      "time_picked": "4:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "date": "fri 21 Apr 2023",
+  "sheduled_time": [
+   {
+    "time_sheduled": "10:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "10:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "11:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "11:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "12:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "12:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "1:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "1:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "2:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "2:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "3:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "3:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "4:00PM",
+    "last_meeting_shedule": true,
+    "last_meeting_shedule_time": "5:00PM",
+    "members_time_picks": [
+     {
+      "time_picked": "4:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "date": "sat 22 Apr 2023",
+  "sheduled_time": [
+   {
+    "time_sheduled": "10:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "10:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "11:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "11:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "12:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "12:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "1:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "1:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "2:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "2:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "3:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "3:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "4:00PM",
+    "last_meeting_shedule": true,
+    "last_meeting_shedule_time": "5:00PM",
+    "members_time_picks": [
+     {
+      "time_picked": "4:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "date": "sun 23 Apr 2023",
+  "sheduled_time": [
+   {
+    "time_sheduled": "10:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "10:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "11:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "11:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "12:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "12:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "1:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "1:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "2:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "2:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "3:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "3:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "4:00PM",
+    "last_meeting_shedule": true,
+    "last_meeting_shedule_time": "5:00PM",
+    "members_time_picks": [
+     {
+      "time_picked": "4:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   }
+  ]
+ }
+
+]
+
+
+
+//For inserting date and time values
+
+const  [date_time,setDate_time] = useState([])
+
+const  [can_pick,setCan_pick] = useState(true)
+
+const [meeting_shedule_data, setMeeting_shedule_data] = useState(meetingShedule)
+
+//const [meeting_shedule_datax, setMeeting_shedule_datax] = useState(meetingShedule)
+
+
+
+
+
+const date = useRef(null)
+const time = useRef(null)
+const [userAcctInfo,setUserAcctInfo] = useState({'userName':'Mr.Chingu','id':'0000000003'})
+
+const [userAcctInfox,setUserAcctInfox] = useState({'userName':'Mr.Chingux','id':'0000000004'})
+
+
+//console.log(time.current)
+
+////console.log(date.current )
+
+
+async function Insert_Chosen_Date_Time(){
+	
+
+setCan_pick(false)
+
+const userName = userAcctInfo.userName
+
+const id = userAcctInfo.id
+
+const selectedDate = await date.current
+
+const selectedTime = await time.current
+
+const selectedHourTemp = await selectedTime.split(':')[0]
+
+const selectedAMorPM = await selectedTime.split(':')[1]
+
+const selectedHour = await selectedHourTemp + ':00' + selectedAMorPM.slice(2)
+
+//console.log(selectedHour)
+
+console.log(selectedDate,selectedTime,  )
+
+
+
+
+setMeeting_shedule_data((meeting_shedule_datax)=>	
+meeting_shedule_datax.map((data)=>{
+	
+if(data.date === selectedDate){
+	
+//const meetingSheduleData = data
+//console.log(meetingSheduleData)	
+  
+
+	
+return {...data, sheduled_time:[...data.sheduled_time
+
+.map((meetingHour)=>{
+	
+if(	meetingHour.time_sheduled === selectedHour){
+	//console.log(meetingHour)
+return 	{...meetingHour,members_time_picks:[...meetingHour.members_time_picks
+
+.map((memberSelectedTime)=>{
+
+if(memberSelectedTime.time_picked === selectedTime  ){
+	console.log(memberSelectedTime)
+	const checkIfUserHasPicked = memberSelectedTime.members_choosed_time.indexOf(userName)
+	console.log(checkIfUserHasPicked)
+	
+	if(checkIfUserHasPicked === -1){
+    return 	{...memberSelectedTime, members_choosed_time:[...memberSelectedTime.members_choosed_time,  userName ] }
+	}
+	else{
+	return 	{...memberSelectedTime, members_choosed_time:[...memberSelectedTime.members_choosed_time.filter((names)=>{return names !== userName}) ] }	
+	}
+}
+return memberSelectedTime
+})
+]}
+}
+return 	meetingHour	
+})
+
+]}
+}
+return data	
+	
+})
+)
+setCan_pick(true)
+console.log(meeting_shedule_data)
+}
+
+
+
+async function addDate(chosenDate){
+date.current = chosenDate
+
+if(can_pick === true){	
+await Insert_Chosen_Date_Time()	
+}
+else{
+return false
+}
+}
+
+async function addTime(chosenTime){
+time.current = chosenTime
+
+}
+
+const timePicksFirst = useRef([])
+
+const timePicksOthers = useRef([])
+
+
+//Display date & time when hovered funcs
+
+async function addDateHover(chosenDate){
+date.current = chosenDate
+
+whatTimeDate()
+}
+
+async function addTimeHover(chosenTime){
+time.current = chosenTime
+
+}
+
+/// Show time on hover
+const [watTimeDate,setWatTimeDate] = useState()
+
+function whatTimeDate(){
+
+setWatTimeDate(date.current + ' ' + time.current  )	
+	
+}
+
+/// SHOW MEMBERS WITH SIMILAR time
+
+const [memberWithSimilarTimes,setMemberWithSimilarTimes] = useState()
+
+var sameTimePickers = ' '
+function similarTimePicks(array){
+var sameTimePickers = ' '
+	
+ array.map((members_with_same_time)=>{
+	
+
+sameTimePickers  += members_with_same_time + ',' 
+	
+}
+
+
+)
+
+setMemberWithSimilarTimes(sameTimePickers)
+
+console.log(sameTimePickers)
+	
+}
+
+
+
+const myMeeting = async(e)=>{
+//e.preventDefault()	
+
+fetch("http://localhost:5000/w/viewevent/rbwnz28FS",{
+	
+method: 'GET',
+    headers: {
+        'Content-Type': 'application/json; charset=UTF-8'
+    },
+
+  
+
+
+}) .then((response) => response.json())
+   .then((data) => {
+      console.log(data);
+      // Handle data
+   })
+   .catch((err) => {
+      console.log(err.message);
+   });
+
+}
+
+useEffect(()=>{
+	
+//	myMeeting()
+	
+},[])
+
+
+
+  return (
+  
+  
+  
+    <div className="App">
+	
+	
+	
+	
+	
+     <div className="sign up">
+	<h2 style={{color:'pink',textAlign:'center'}}>Sign Up</h2>
+	
+	<form  onSubmit={handleSubmit}  >
+	<div style={{width:'30%', border:'1px solid pink', margin:'auto', borderRadius:'100px', borderStyle:'dashed'}}>
+	<div style={{display:'flex', flexDirection:'column', width:'97%',margin:'0.3rem', border:'1px solid pink', borderRadius:'10rem', overflow:'hidden'}}>
+	<div style={{display:'flex', justifyContent:'center'}}><input type='text' placeholder='username' name='username' style={{width:'70%',height:'3rem',border:'0px',outline:'none',color:'pink'}} onChange={(e)=>signUpEmail(e)} /></div>
+	<div style={{width:'75%',height:'2.5rem',margin:'auto',border:'1px solid pink', borderRadius:'5rem'}}><button type='submit' style={{height:'100%', width:'30%',borderRadius:'5rem',border:'0px',float:'right',backgroundColor:'pink',color:'white'}} ref={signupButton} onClick={buttonAnimationSignUp} >Sign Up</button></div>
+	<div style={{display:'flex', justifyContent:'center'}}><input type='Password' placeholder='Password' name='password' style={{width:'70%',height:'3rem',border:'0px',outline:'none',color:'pink'}} onChange={(e)=>signUpPass(e)} /></div>
+	</div>
+	</div>
+	<p>{signUpMessage}</p>
+	</form>
+    </div>
+	
+	<h2 style={{color:'pink',textAlign:'center'}}>Sign In</h2>
+	
+	<form  onSubmit={handleSubmitSignIn}  >
+	<div style={{width:'30%', border:'1px solid pink', margin:'auto', borderRadius:'100px', borderStyle:'dashed'}}>
+	<div style={{display:'flex', flexDirection:'column', width:'97%',margin:'0.3rem', border:'1px solid pink', borderRadius:'10rem', overflow:'hidden'}}>
+	<div style={{border:'0px solid red',display:'flex', justifyContent:'center'}}><input type='text' placeholder='username' name='username' style={{width:'70%',height:'3rem',border:'0px',outline:'none',color:'pink'}} onChange={(e)=>signInEmail(e)}  /></div>
+	<div style={{width:'75%',height:'2.5rem',margin:'auto',border:'1px solid pink', borderRadius:'5rem'}}><button type='submit' style={{height:'100%', width:'30%',borderRadius:'5rem',border:'0px',float:'right',backgroundColor:'pink',color:'white'}} ref={loginButton} onClick={buttonAnimationSignIn} >Login</button></div>
+	<div style={{border:'0px solid red',display:'flex', justifyContent:'center'}}><input type='Password' placeholder='Password' name='password' style={{width:'70%',height:'3rem',border:'0px',outline:'none',color:'pink'}} onChange={(e)=>signInPass(e)} /></div>
+	</div>
+	</div>
+
+	</form>
+	
+	
+	<p style={{color:'pink',cursor:'pointer',textAlign:'center'}}> Forgot password?</p>
+	
+		<p>{signInMessage}</p>
+		
+		
+		
+		
+	<h1>EVENTS</h1>
+	<form onSubmit={createEvent} >
+		{/*
+	<div> <input type='text' name = 'meeting_title' placeholder='title' onChange={eventTitle}/> </div>
+	<div> <input type='text'  name="duration" placeholder='duration' onChange={eventDuration}/> </div>
+	*/}
+	<div> <input type='submit' value='Create Event' /> </div>
+		
+	
+	</form>
+	    <br />
+		<br />
+		<br />
+		<form>
+		<button onClick={deleteEvent}>Delete Event</button> 
+		</form>
+		<br />
+		<br />
+		<br />
+		
+		<button onClick={joinMeeting}>Join Meeting</button>
+		<br />
+		<br />
+		<br />
+		<button onClick={cancelMeeting}>Cancel Meeting</button>
+		<br />
+		<br />
+		<br />
+		
+		
+		
+		  ////////////NOTE : FIND THE function similarTimePicks(array) ON LINE 1305
+///		  AND MAKE IT PERFECT. THE NAME ARE DISPLAYED IN LIKE THIS,
+		  //// Adam,Eve,Kain,Abel
+		  //// It shud be 
+		  ////  //// Adam,
+		           //Eve,
+		           //Kain,
+		         //  Abel
+		
+		<br />
+		<br />
+		<br />
+		////BEGINING OF THE MEETING PICKER
+		<div style={{ display:'flex', flexDirection:'row',width:'fit-content',border:'1px solid red',margin:'auto'}}>
+	
+     	{
+			meeting_shedule_data.map((info,indx)=>{
+			return(
+			
+			<div key={indx + 'data4'}>
+			
+			<div style={{width:'5rem',margin:'2px',border:'1px solid blue'}}>
+			<div> {info.date.split(' ')[2]} {info.date.split(' ')[1]}</div>
+			<div> {info.date.split(' ')[0].toUpperCase().slice(0,1)}{info.date.split(' ')[0].slice(1)}</div>
+			</div>
+			<div style={{display:'flex', flexDirection:'column',margin:'2px',border:'0px solid green'}} onClick={()=>{addDate(info.date)}} onMouseOver={()=>{addDateHover(info.date)}} >
+			
+			
+			<div key = {indx + 'data5'}>
+			{
+				info.sheduled_time.map((info,index)=>{
+				return(
+				<div style={{display:'flex', flexDirection:'row'}} key={index+"data7"}> 
+			
+			{
+				indx === 0 ? 
+				
+				<div style = {{display:'flex', flexDirection:'column',height:'3rem',width:'100%', marginBottom:'0rem',borderTop:'1px solid black',borderLeft:'1px solid black',borderRight:'1px solid black',borderBottom: index !== 6 ? '0px' : '1px solid black',position:'relative'}} className="meeting_split_times_container" key={index+"data8"}>
+				<div style={{position:'absolute',transform:'translate(-80%,-2%)',zIndex:'-2',height: info.last_meeting_shedule === true ? '3.7rem' : 'inherit',width:'inherit',display:'flex', flexDirection:'column', border:'1px solid red'}} >
+
+                
+				<div style={{fontSize:'0.7rem',height:'25%'}}>{info.time_sheduled}</div>
+				<div style={{height:'25%'}}></div>
+				<div style={{height:'25%'}}></div>
+				<div style={{paddingTop:'1rem',fontSize:'0.7rem',height:'25%'}}>{info.last_meeting_shedule === true && info.last_meeting_shedule_time }</div>
+				
+				</div>
+				
+
+				
+				{
+				
+            info.members_time_picks.map((info,indexx)=>{
+			return(	
+			 
+				<span style={{height:'25%',width:'100%',border:'0px solid red',borderBottom:indexx === 1 ? '1px solid grey' : '0px solid grey', borderStyle:'dashed',
+				backgroundColor: info.members_choosed_time.length > 0 && info.members_choosed_time.indexOf(userAcctInfo.userName) !== -1 ? 
+				'rgb(51, 153, 0)' : info.members_choosed_time.length > 0 && info.members_choosed_time.indexOf(userAcctInfo.userName) === -1 ? 
+				'lightgreen' : '' }} onClick={()=> { addTime(info.time_picked)}} onMouseOver={()=> { addTimeHover(info.time_picked); similarTimePicks(info.members_choosed_time)}} key={indexx+"data9"}  ref = {(firstRowTime)=> timePicksFirst.current[indexx]
+				= firstRowTime} className='smallTimeBlocks' ></span>
+			
+				)
+				
+			})		
+				}
+				
+				</div>
+				:
+				<div style = {{display:'flex', flexDirection:'column',height:'3rem',width:'100%', marginBottom:'0rem',borderTop:'1px solid black',borderLeft:'1px solid black',borderRight:'1px solid black',borderBottom: index !== 6 ? '0px' : '1px solid black',position:'relative'}} key={index+"data10"} >
+		
+					{
+				
+            info.members_time_picks.map((info,i)=>{
+			return(	
+			  
+				<span style={{height:'25%',width:'100%',border:'0px solid red',borderBottom:i === 1 ? '1px solid grey' : '0px solid grey', 
+				borderStyle:'dashed', backgroundColor:  info.members_choosed_time.length > 0 && info.members_choosed_time.indexOf(userAcctInfo.userName)
+				!== -1 ? 'rgb(51, 153, 0)' : info.members_choosed_time.length > 0 && info.members_choosed_time.indexOf(userAcctInfo.userName) === -1 ? 'lightgreen' : ''  }} 
+				onClick={()=> { addTime(info.time_picked) }} onMouseOver={()=> { addTimeHover(info.time_picked);similarTimePicks(info.members_choosed_time)}} key={i+"data11"} className='smallTimeBlocks'></span>
+			
+				)
+				
+			})		
+				}
+			
+				</div>
+			}
+				</div>
+				 )
+				})
+			
+			    }
+			</div>
+			
+			</div>
+			
+			</div>
+			
+			)
+			})
+			
+			
+			}
+			
+	   
+		
+		</div>
+		
+		//////////// END OF THE MEETING PICKER
+		
+		
+		<div>{watTimeDate}</div>
+		<br />
+		<br />
+		//Avaialable members: PLS MAKE NAMES DISPLAY ROW BY ROW
+		<div >{memberWithSimilarTimes}</div>
+		
+		<br />
+		<br />
+		<br />
+    </div>
+	
+
+  );
+}
+
+export default App;

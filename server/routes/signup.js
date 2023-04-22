@@ -13,7 +13,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/usersSchema");
 
 
-/////////////
+
 
 
 app.use(express.urlencoded({ extended: true}));
@@ -34,6 +34,7 @@ useNewUrlParser : true,
 useUnifiedTopology: true
 }
 
+
 const client = mongoose.connect(url,connectionParams).then(() => {
       console.log("Successfully connected to What Time DB!");
     })
@@ -41,16 +42,20 @@ const client = mongoose.connect(url,connectionParams).then(() => {
       console.log("Unable to connect to MongoDB Atlas!");
       console.error(error);
     })
+	
 
 
 router.post('/',async(req,res,next)=>{
+	
+	console.log(req.body)
+
 	try{
 	const salt = await bcrypt.genSalt(10);
 	 const encryppassword = await bcrypt.hash(req.body.user.pass,salt);
 	 
 	 
 	    const user = new User ({
-        email: req.body.user.email.toLowerCase(),
+        username: req.body.user.username.toLowerCase(),
         password: encryppassword,	
       });
       user.save()
@@ -63,10 +68,11 @@ router.post('/',async(req,res,next)=>{
 	catch(err){
 		console.log(err)
 		}
+	
 
 })
 
 module.exports = router
 
 
-/////////////////////////
+////////

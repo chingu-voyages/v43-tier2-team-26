@@ -5,16 +5,16 @@ const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
 
-  email:{
+  username:{
     type: String,
-    required: [true, "Please provide an Email!"],
-    unique: [true, "Email Exist"],
+    required: [true, "Please provide a username"],
+    unique: [true, "Username Exist"],
 	trim: true,
   },
 
   password: {
     type: String,
-    required: [true, "Please provide a password!"],
+    required: [false, "Please provide a password!"],
     unique: false,
 	min: 6,
     max: 12
