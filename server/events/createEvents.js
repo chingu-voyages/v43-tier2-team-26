@@ -57,22 +57,9 @@ function getDayDiff(startDate, endDate) {
 function BuildAllDatesTimes(timesTemplatesArr,DatesArr){
 meetingSheduleTemplate = []
 DatesArr.map((dates)=>{
-
-//console.log(dates)	
-meetingSheduleTemplate.push({'date' : dates,'sheduled_time':[...timesTemplatesArr]})	
-
-
 	
+meetingSheduleTemplate.push({'date' : dates,'sheduled_time':[...timesTemplatesArr]})		
 })
-
-console.log(meetingSheduleTemplate)	
-
-
-fs.writeFileSync("MeetingSheduleNew.txt", JSON.stringify(meetingSheduleTemplate, null, 1), (err) => {
-
-       if (err) console.log(err)
-
-});
 
 }
 
@@ -229,16 +216,11 @@ const eventId2 = await Date.now().toString()
 
 const randomNum_1 = await Math.floor(Math.random() * 4)
 
-
 const code = await Math.random().toString(36).substring(2,7)
 
 const createDocumentId = `${code}${eventId}${req.body.event.meeting_title.charAt(0)}${req.body.event.meeting_title.charAt(req.body.event.meeting_title.length-1)}`
 
-//console.log(dateFromdateTo)
-
 await CreateTimeObjects(Number(time_space_diff),req.body.event.time_from,req.body.event.time_to,dateFromdateTo)
-
-
 
 try{
 
@@ -253,12 +235,13 @@ time: req.body.event.time_from + ' to ' + req.body.event.time_to,
 date_from:dateFromdateTo[0],
 date_to:dateFromdateTo[dateFromdateTo.length - 1],
 time_zone:req.body.event.time_zone,
-date_duration:req.body.event.date_from + ' to ' + req.body.event.date_to ,
+date_duration:dateFromdateTo[0]+ ' to ' + dateFromdateTo[dateFromdateTo.length - 1] ,
 time_gap:Number(time_space_diff),
 //days_gap:Number(days_diff),
 meeting_data:meetingSheduleTemplate,
 usser_meeting_data:meetingSheduleTemplate,
 team_members_user_names:[],
+meeting_event_creator:req.body.event.event_creator,
 
 active:true	
 })

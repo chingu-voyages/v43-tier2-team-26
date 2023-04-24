@@ -27,17 +27,10 @@ origin : "http://localhost:3000"
 
 app.use(cors(corsOptions))
 
-
-
 const connectionParams={
 useNewUrlParser : true,
 useUnifiedTopology: true
 }
-
-
-
-
-//////////
 
 
 router.post('/',async(req,res,next)=>{
@@ -45,7 +38,6 @@ router.post('/',async(req,res,next)=>{
 try{
  const eventId = await req.body.evtId
  
- console.log(eventId)
 
  const delEvent = await Events.deleteOne({_id:eventId})
 

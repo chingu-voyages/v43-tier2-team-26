@@ -72,6 +72,8 @@ const eventsSchema = new mongoose.Schema({
 	type : [],
   },
   
+  meeting_event_creator:{type: String},
+  
   team_members:{type: [{name : {type:String},time_zone:{type:String},location:{type:String},created_on:{type: Date,default: Date.now},
   event_title:{type:String},team_member:{type:String},time:{type:String},event_day:{type:Date},event_d:{String},team_member:{type:String}
   }]

@@ -7,6 +7,7 @@ const router = express.Router()
 const bodyParser = require("body-parser")
 const MongoClient = require("mongodb").MongoClient;
 const mongoose = require('mongoose')
+const url = process.env.MONGO_URL;
 const signUp = require('./routes/signup.js')
 const signIn = require('./routes/signin.js')
 const createEvent = require('./events/createEvents.js')
@@ -15,6 +16,9 @@ const Events = require("./events/eventsModelSchema");
 const delEvents = require("./events/deleteEvents.js");
 const joinMeeting = require("./events/joinMeeting.js");
 const cancelMeeting = require("./events/cancelMeeting.js");
+const updateAEvent = require("./events/updateAnEvent.js");
+const updateAUsserMeetingEvent = require("./events/updateAUsserEvent.js");
+
 
 
 
@@ -22,16 +26,30 @@ const fs = require("fs");
 
 const cors = require("cors")
 
-
-
 app.use(express.static(path.join(__dirname,'..','client/build')));
-
 
 var corsOptions = {
 origin : "http://localhost:3000"
 }
 
 app.use(cors(corsOptions))
+
+
+const connectionParams={
+useNewUrlParser : true,
+useUnifiedTopology: true
+}
+
+
+const client = mongoose.connect(url,connectionParams).then(() => {
+      console.log("Successfully connected to What Time DB!");
+    })
+    .catch((error) => {
+      console.log("Unable to connect to MongoDB Atlas!");
+      console.error(error);
+    })
+	
+
 
 
 app.use(express.urlencoded({ extended: true}));
@@ -54,6 +72,13 @@ app.use("/w/deleteevent",delEvents)
 app.use("/w/joinmeeting",joinMeeting)
 
 app.use("/w/cancelmeeting",cancelMeeting)
+
+app.use("/w/updateanevent",updateAEvent)
+
+app.use("/w/update",updateAUsserMeetingEvent)
+
+
+
 
 
 app.use((req, res, next) => {
@@ -82,7 +107,6 @@ res.status(400).send({'message':'Error!'})
 }
 catch(err){}
 });
-
 
 
  
