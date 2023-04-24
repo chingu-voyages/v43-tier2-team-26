@@ -12,7 +12,7 @@ const signUp = require('./routes/signup.js')
 const signIn = require('./routes/signin.js')
 const createEvent = require('./events/createEvents.js')
 const viewEvents = require('./events/viewEvents.js')
-const Events = require("./events/eventsModelSchema");
+const MeetingEvents = require("./events/eventsModelSchema");
 const delEvents = require("./events/deleteEvents.js");
 const joinMeeting = require("./events/joinMeeting.js");
 const cancelMeeting = require("./events/cancelMeeting.js");
@@ -94,8 +94,9 @@ app.use((req, res, next) => {
 // VIEW EVENTS
 
 router.get('/w/viewevent/:id',async(req,res,next)=>{
+
 try{
-const getEvent = await Events.findById(req.params.id).lean((dd)=> console.log(dd))
+const getEvent = await MeetingEvents.findById(req.params.id).lean()
 
 
 if(getEvent){

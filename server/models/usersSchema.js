@@ -29,6 +29,7 @@ const userSchema = new mongoose.Schema({
   meeting_duration:{type: String},
   time_duration:{type: String},
   time_gap:{type: Number},
+  time_zone:{type: String},
   created_on:{
    type: Date,
    default: Date.now,
