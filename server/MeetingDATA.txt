@@ -1,0 +1,864 @@
+[
+ {
+  "date": "wed 19 Apr 2023",
+  "sheduled_time": [
+   {
+    "time_sheduled": "10:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "10:00AM",
+      "members_choosed_time": [
+       "user16NOPASS"
+      ]
+     },
+     {
+      "time_picked": "10:15AM",
+      "members_choosed_time": [
+       "user16NOPASS"
+      ]
+     },
+     {
+      "time_picked": "10:30AM",
+      "members_choosed_time": [
+       "user16NOPASS"
+      ]
+     },
+     {
+      "time_picked": "10:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "11:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "11:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:45AM",
+      "members_choosed_time": [
+       "user16NOPASS"
+      ]
+     }
+    ]
+   },
+   {
+    "time_sheduled": "12:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "12:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:15AM",
+      "members_choosed_time": [
+       "user16NOPASS"
+      ]
+     },
+     {
+      "time_picked": "12:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "1:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "1:00PM",
+      "members_choosed_time": [
+       "user16NOPASS"
+      ]
+     },
+     {
+      "time_picked": "1:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "2:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "2:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "3:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "3:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "4:00PM",
+    "last_meeting_shedule": true,
+    "last_meeting_shedule_time": "5:00PM",
+    "members_time_picks": [
+     {
+      "time_picked": "4:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "date": "thur 20 Apr 2023",
+  "sheduled_time": [
+   {
+    "time_sheduled": "10:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "10:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "11:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "11:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "12:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "12:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:30AM",
+      "members_choosed_time": [
+       "user16NOPASS"
+      ]
+     },
+     {
+      "time_picked": "12:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "1:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "1:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "2:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "2:00PM",
+      "members_choosed_time": [
+       "user16NOPASS"
+      ]
+     },
+     {
+      "time_picked": "2:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "3:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "3:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "4:00PM",
+    "last_meeting_shedule": true,
+    "last_meeting_shedule_time": "5:00PM",
+    "members_time_picks": [
+     {
+      "time_picked": "4:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "date": "fri 21 Apr 2023",
+  "sheduled_time": [
+   {
+    "time_sheduled": "10:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "10:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:30AM",
+      "members_choosed_time": [
+       "user16NOPASS"
+      ]
+     },
+     {
+      "time_picked": "10:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "11:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "11:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "12:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "12:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:45AM",
+      "members_choosed_time": [
+       "user16NOPASS"
+      ]
+     }
+    ]
+   },
+   {
+    "time_sheduled": "1:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "1:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "2:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "2:00PM",
+      "members_choosed_time": [
+       "user16NOPASS"
+      ]
+     },
+     {
+      "time_picked": "2:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "3:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "3:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "4:00PM",
+    "last_meeting_shedule": true,
+    "last_meeting_shedule_time": "5:00PM",
+    "members_time_picks": [
+     {
+      "time_picked": "4:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "date": "sat 22 Apr 2023",
+  "sheduled_time": [
+   {
+    "time_sheduled": "10:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "10:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:30AM",
+      "members_choosed_time": [
+       "user16NOPASS"
+      ]
+     },
+     {
+      "time_picked": "10:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "11:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "11:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "12:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "12:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "1:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "1:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "2:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "2:00PM",
+      "members_choosed_time": [
+       "user16NOPASS"
+      ]
+     },
+     {
+      "time_picked": "2:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "3:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "3:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "4:00PM",
+    "last_meeting_shedule": true,
+    "last_meeting_shedule_time": "5:00PM",
+    "members_time_picks": [
+     {
+      "time_picked": "4:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "date": "sun 23 Apr 2023",
+  "sheduled_time": [
+   {
+    "time_sheduled": "10:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "10:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "10:45AM",
+      "members_choosed_time": [
+       "user16NOPASS"
+      ]
+     }
+    ]
+   },
+   {
+    "time_sheduled": "11:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "11:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "11:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "12:00AM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "12:00AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:15AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:30AM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "12:45AM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "1:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "1:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:15PM",
+      "members_choosed_time": [
+       "user16NOPASS"
+      ]
+     },
+     {
+      "time_picked": "1:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "1:45PM",
+      "members_choosed_time": [
+       "user16NOPASS"
+      ]
+     }
+    ]
+   },
+   {
+    "time_sheduled": "2:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "2:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "2:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "3:00PM",
+    "last_meeting_shedule": false,
+    "last_meeting_shedule_time": "",
+    "members_time_picks": [
+     {
+      "time_picked": "3:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "3:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   },
+   {
+    "time_sheduled": "4:00PM",
+    "last_meeting_shedule": true,
+    "last_meeting_shedule_time": "5:00PM",
+    "members_time_picks": [
+     {
+      "time_picked": "4:00PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:15PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:30PM",
+      "members_choosed_time": []
+     },
+     {
+      "time_picked": "4:45PM",
+      "members_choosed_time": []
+     }
+    ]
+   }
+  ]
+ }
+]

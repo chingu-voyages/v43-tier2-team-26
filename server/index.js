@@ -6,21 +6,28 @@ const path = require("path");
 const router = express.Router();
 const bodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
-const mongoose = require("mongoose");
-const signUp = require("./routes/signup.js");
-const signIn = require("./routes/signin.js");
-const createEvent = require("./events/createEvents.js");
-const viewEvents = require("./events/viewEvents.js");
-const Events = require("./events/eventsModelSchema");
+const mongoose = require('mongoose')
+const url = process.env.MONGO_URL;
+const signUp = require('./routes/signup.js')
+const signIn = require('./routes/signin.js')
+const createEvent = require('./events/createEvents.js')
+const viewEvents = require('./events/viewEvents.js')
+const MeetingEvents = require("./events/eventsModelSchema");
 const delEvents = require("./events/deleteEvents.js");
 const joinMeeting = require("./events/joinMeeting.js");
 const cancelMeeting = require("./events/cancelMeeting.js");
+const updateAEvent = require("./events/updateAnEvent.js");
+const updateAUsserMeetingEvent = require("./events/updateAUsserEvent.js");
+
+
+
 
 const fs = require("fs");
 
-const cors = require("cors");
+const cors = require("cors")
 
-app.use(express.static(path.join(__dirname, "..", "client/build")));
+app.use(express.static(path.join(__dirname,'..','client/build')));
+
 
 var corsOptions = {
   origin: "http://localhost:3000",
@@ -36,7 +43,30 @@ app.use(
 );
 app.use(express.json());
 
-app.use(router);
+
+const connectionParams={
+useNewUrlParser : true,
+useUnifiedTopology: true
+}
+
+
+const client = mongoose.connect(url,connectionParams).then(() => {
+      console.log("Successfully connected to What Time DB!");
+    })
+    .catch((error) => {
+      console.log("Unable to connect to MongoDB Atlas!");
+      console.error(error);
+    })
+	
+
+
+
+app.use(express.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(express.json())
+
 
 app.use("/w/signup", signUp);
 
@@ -48,7 +78,15 @@ app.use("/w/deleteevent", delEvents);
 
 app.use("/w/joinmeeting", joinMeeting);
 
-app.use("/w/cancelmeeting", cancelMeeting);
+
+app.use("/w/updateanevent",updateAEvent)
+
+app.use("/w/update",updateAUsserMeetingEvent)
+
+
+
+
+
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -58,9 +96,23 @@ app.use((req, res, next) => {
 
 // VIEW EVENTS
 
-router.get("/w/viewevent/:id", async (req, res, next) => {
-  try {
-    const getEvent = await Events.findOne({ _id: req.params.id }).lean();
+
+router.get('/w/viewevent/:id',async(req,res,next)=>{
+
+try{
+const getEvent = await MeetingEvents.findById(req.params.id).lean()
+
+
+if(getEvent){
+res.status(200).json(getEvent)
+}
+else{
+res.status(400).send({'message':'Error!'})	
+}
+}
+catch(err){}
+});
+
 
     if (getEvent) {
       res.status(200).send(getEvent);
@@ -70,7 +122,21 @@ router.get("/w/viewevent/:id", async (req, res, next) => {
   } catch (err) {}
 });
 
-//////////////
+
+ 
+ 
+ 
+app.get("/w/signin", (req,res)=>{
+	
+res.redirect('/')
+})
+
+app.get("/w/signup", (req,res)=>{
+	
+res.redirect('/')
+})
+
+
 
 app.get("/w/signin", (req, res) => {
   res.redirect("/");

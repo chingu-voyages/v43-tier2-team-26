@@ -14,6 +14,7 @@ const eventsSchema = new mongoose.Schema({
     required: [true, "Please a an event tittle"],
 	trim: true,
   },
+  
 	
   created_on:{
    type: Date,
@@ -27,7 +28,7 @@ const eventsSchema = new mongoose.Schema({
   
   time_gap:{type:Number},
   
-  days_gap:{type:Number},
+  //days_gap:{type:Number},
   
   time:{
   type: String,
@@ -64,16 +65,26 @@ const eventsSchema = new mongoose.Schema({
    required: [true, "Please add a time zone"],
   },
   
+  meeting_data:{ 
+	type : [],
+  },
+  usser_meeting_data:{ 
+	type : [],
+  },
+  
+  meeting_event_creator:{type: String},
+  
   team_members:{type: [{name : {type:String},time_zone:{type:String},location:{type:String},created_on:{type: Date,default: Date.now},
   event_title:{type:String},team_member:{type:String},time:{type:String},event_day:{type:Date},event_d:{String},team_member:{type:String}
   }]
-  }
+  },
+  team_members_user_names:{type:[]}
  
 	
 	
 })
 
 
-module.exports = mongoose.model("events",  eventsSchema);
+module.exports = mongoose.model("meetings_docs",  eventsSchema);
 
 
