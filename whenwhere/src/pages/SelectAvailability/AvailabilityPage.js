@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AvailabilityGrid } from './AvailabilityGrid.js';
 import { GroupGrid } from './GroupGrid.js';
-// import LoginPage from '../loginpage.js'
+
 
 export const AvailabilityPage = () => {
   const meetingId = window.location.href.split('/')[3];
@@ -35,7 +35,7 @@ export const AvailabilityPage = () => {
             <Row>
               <Col>
                 <AvailabilityGrid />
-                {/* <LoginPage /> */}
+                <GroupGrid />
               </Col>
             </Row>
           </Col>
