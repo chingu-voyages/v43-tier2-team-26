@@ -5,6 +5,19 @@ import './AvailabilityGrid.styles.css'
 
 
 export const AvailabilityGrid = ({ daysDiff, timeDiff }) => {
+
+  const [joinAmeeting, setJoinAmeeting] = useState({
+    event_title: 'Coding wat time App',
+    event_Id: 'ct3lt46Dy',
+    name: 'Bill Gates',
+    time: '5pm',
+    event_day: '1-4-2023',
+    time_zone: 'GMT+1',
+    location: 'OSAKA',
+    team_member: '64331624aec75ac9d1a121ae',
+    selectedTimes: []
+  });
+
   const [selectedCells, setSelectedCells] = useState([]);
 
   const toggleCell = (rowIndex, colIndex) => {

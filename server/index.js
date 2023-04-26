@@ -114,14 +114,6 @@ catch(err){}
 });
 
 
-    if (getEvent) {
-      res.status(200).send(getEvent);
-    } else {
-      res.status(400).send({ message: "Error!" });
-    }
-  } catch (err) {}
-});
-
 
  
  
