@@ -1,17 +1,16 @@
-const express = require("express");
-const cors = require("cors");
+const express = require('express')
+const cors = require("cors")
 const bodyParser = require("body-parser");
 const path = require("path");
-const fs = require("fs");
-const app = express();
-const router = express.Router();
-const { MongoClient } = require("mongodb");
-const mongoose = require("mongoose");
+const fs = require('fs')
+const app = express()
+const router = express.Router()
+const {MongoClient} = require("mongodb");
+const mongoose = require('mongoose')
 const url = process.env.MONGO_URL;
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/usersSchema");
-
 
 app.use(express.urlencoded({ extended: true}));
 app.use(bodyParser.urlencoded({
@@ -19,18 +18,17 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.json())
 
-
 var corsOptions = {
-  origin: "http://localhost:3000",
-};
+origin : "http://localhost:3000"
+}
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions))
 
-const connectionParams = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
 
+const connectionParams={
+useNewUrlParser : true,
+useUnifiedTopology: true
+}
 
 /*
 const client = mongoose.connect(url,connectionParams).then(() => {
@@ -106,7 +104,5 @@ router.post('/',async(req,res,next)=>{
 })
 
 module.exports = router
-
-
 
 
