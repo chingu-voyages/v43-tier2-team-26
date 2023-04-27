@@ -22,7 +22,6 @@ export const CreateEvent = () => {
     const dateTo = convertDate(data.dateRange[1]);
     const timeFrom = convertTime(data.timeFrom);
     const timeTo = convertTime(data.timeTo);
-    console.log(timeFrom);
 
     try {
       const response = await fetch('/w/createevent', {
@@ -33,6 +32,7 @@ export const CreateEvent = () => {
         body: JSON.stringify({
           event: {
             meeting_title: data.eventName,
+            meeting_dates: [dateFrom, dateTo],
             time_from: timeFrom,
             time_to: timeTo,
             date_from: dateFrom,
