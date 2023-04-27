@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './CreateEvent.styles.css';
 import { convertDate } from '../../utils/covertDate';
-import { convertTime } from '../../utils/converTime';
+import { convertTime } from '../../utils/convertTime';
 import { useNavigate } from 'react-router-dom';
 
 export const CreateEvent = () => {
