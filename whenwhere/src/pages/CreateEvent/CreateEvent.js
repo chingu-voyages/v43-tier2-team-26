@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './CreateEvent.styles.css';
 import { convertDate } from '../../utils/covertDate';
+import { convertTime } from '../../utils/convertTime';
 import { useNavigate } from 'react-router-dom';
 
 export const CreateEvent = () => {
@@ -19,6 +20,8 @@ export const CreateEvent = () => {
   const onSubmit = async data => {
     const dateFrom = convertDate(data.dateRange[0]);
     const dateTo = convertDate(data.dateRange[1]);
+    const timeFrom = convertTime(data.timeFrom);
+    const timeTo = convertTime(data.timeTo);
 
     try {
       const response = await fetch('/w/createevent', {
@@ -29,8 +32,9 @@ export const CreateEvent = () => {
         body: JSON.stringify({
           event: {
             meeting_title: data.eventName,
-            time_from: data.timeFrom,
-            time_to: data.timeTo,
+            meeting_dates: [dateFrom, dateTo],
+            time_from: timeFrom,
+            time_to: timeTo,
             date_from: dateFrom,
             date_to: dateTo,
             time_zone: 'Eroupe/Sweeden (GMT+2)',

@@ -1,6 +1,6 @@
-import React from "react";
-import Form from "react-bootstrap/Form";
-import { useFormContext } from "react-hook-form";
+import React from 'react';
+import Form from 'react-bootstrap/Form';
+import { useFormContext } from 'react-hook-form';
 
 export const TimeRangePicker = () => {
   const {
@@ -15,7 +15,7 @@ export const TimeRangePicker = () => {
       <Form.Control
         type="time"
         id="timeFrom"
-        {...register("timeFrom", { required: "Time From is required" })}
+        {...register('timeFrom', { required: 'Time From is required' })}
       />
       {errors.timeFrom && (
         <Form.Text className="text-danger">{errors.timeFrom.message}</Form.Text>
@@ -26,7 +26,7 @@ export const TimeRangePicker = () => {
       <Form.Control
         type="time"
         id="timeTo"
-        {...register("timeTo", { required: "Time To is required" })}
+        {...register('timeTo', { required: 'Time To is required' })}
       />
       {errors.timeTo && (
         <Form.Text className="text-danger">{errors.timeTo.message}</Form.Text>
